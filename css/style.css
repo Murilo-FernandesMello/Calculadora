@@ -44,7 +44,11 @@ body {
 está disposto em 4 colunas */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 10px;
+    grid-gap: 5px;
+}
+
+#operadorResto {
+    font-size: 10pt;
 }
 
 .calculator button {

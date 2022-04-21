@@ -6,12 +6,17 @@ let novoNumero = true;
 let operador;
 let numeroAnterior;
 const operacaoPendente = () => operador !== undefined;
+
 const calcular = () => {
     if (operacaoPendente()) {
-        const numeroAtual =
-            parseFloat(display.textContent.replace(',', '.'));
+        const numeroAtual = parseFloat(display.textContent.replace(',', '.'));
         novoNumero = true;
-        const resultado = eval(`${numeroAnterior}${operador}${numeroAtual}`);
+        //raiz quadrada
+        if (operador == "√") {
+            var resultado = eval(`${Math.sqrt(numeroAtual)}`);
+        } else {
+            var resultado = eval(`${numeroAnterior}${operador}${numeroAtual}`);
+        }
         atualizarDisplay(resultado);
     }
 }
@@ -90,7 +95,8 @@ const mapaTeclado = {
     'Escape': 'limparCalculo',
     ',': 'decimal',
     '**': 'operadorPotencia',
-    '%': 'operadorResto'
+    '%': 'operadorResto',
+    '√': 'operadorRaiz'
 }
 
 numeros.forEach(numero => numero.addEventListener('click',
